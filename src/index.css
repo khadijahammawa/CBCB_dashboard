@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-family:
+      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(88, 166, 255, 0.18), transparent 28rem),
+      radial-gradient(circle at 88% 8%, rgba(45, 212, 191, 0.12), transparent 24rem),
+      linear-gradient(135deg, #07111f 0%, #0a1525 52%, #101827 100%);
+  }
+
+  input,
+  select {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .primary-button {
+    @apply min-h-10 rounded-md border border-violet-200/30 bg-gradient-to-r from-violet-500 to-teal-400 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-950/30 transition hover:from-violet-400 hover:to-teal-300 disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .secondary-button {
+    @apply min-h-10 rounded-md border border-white/10 bg-white/[0.075] px-3 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/[0.12] disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .ghost-button {
+    @apply min-h-10 rounded-md border border-rose-300/25 bg-transparent px-3 py-2 text-sm font-semibold text-rose-100 transition hover:bg-rose-300/10 disabled:cursor-not-allowed disabled:opacity-45;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+body,
+main,
+header,
+article,
+section,
+div,
+input,
+select,
+button,
+table,
+th,
+td {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.theme-toggle {
+  position: relative;
+  display: grid;
+  min-height: 2.5rem;
+  width: 9rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(15, 23, 42, 0.48);
+  padding: 0.25rem;
+  color: rgb(203, 213, 225);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.theme-toggle > span:not(.theme-toggle-thumb) {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  inset-block: 0.25rem;
+  left: 0.25rem;
+  width: calc(50% - 0.25rem);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8b5cf6, #2dd4bf);
+  box-shadow: 0 10px 24px rgba(49, 46, 129, 0.3);
+  transform: translateX(100%);
+  transition: transform 180ms ease;
+}
+
+.theme-toggle[data-mode="light"] .theme-toggle-thumb {
+  transform: translateX(0);
+}
+
+:root[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(124, 58, 237, 0.14), transparent 28rem),
+    radial-gradient(circle at 84% 8%, rgba(20, 184, 166, 0.14), transparent 24rem),
+    linear-gradient(135deg, #f8fbff 0%, #edf4fb 52%, #f6f9fc 100%);
+}
+
+:root[data-theme="light"] main {
+  color: #0f172a;
+}
+
+:root[data-theme="light"] [class*="bg-clinical-panel"],
+:root[data-theme="light"] [class*="bg-white/"],
+:root[data-theme="light"] [class*="bg-slate-950/"],
+:root[data-theme="light"] [class*="bg-black/"] {
+  background-color: rgba(255, 255, 255, 0.78) !important;
+}
+
+:root[data-theme="light"] [class*="bg-gradient-to-br"] {
+  background-image: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.14),
+    rgba(255, 255, 255, 0.86),
+    rgba(20, 184, 166, 0.16)
+  ) !important;
+}
+
+:root[data-theme="light"] .bg-slate-800 {
+  background-color: #e2e8f0 !important;
+}
+
+:root[data-theme="light"] [class*="border-white/"] {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+:root[data-theme="light"] .shadow-glass {
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1) !important;
+}
+
+:root[data-theme="light"] .text-white,
+:root[data-theme="light"] .text-slate-100,
+:root[data-theme="light"] .text-slate-200 {
+  color: #0f172a !important;
+}
+
+:root[data-theme="light"] .text-slate-300 {
+  color: #334155 !important;
+}
+
+:root[data-theme="light"] .text-slate-400,
+:root[data-theme="light"] .text-slate-500,
+:root[data-theme="light"] .text-slate-600 {
+  color: #64748b !important;
+}
+
+:root[data-theme="light"] [class*="text-violet-"] {
+  color: #6d28d9 !important;
+}
+
+:root[data-theme="light"] [class*="text-teal-"] {
+  color: #0f766e !important;
+}
+
+:root[data-theme="light"] [class*="text-amber-"] {
+  color: #92400e !important;
+}
+
+:root[data-theme="light"] [class*="text-rose-"] {
+  color: #be123c !important;
+}
+
+:root[data-theme="light"] [class*="text-sky-"] {
+  color: #0369a1 !important;
+}
+
+:root[data-theme="light"] input,
+:root[data-theme="light"] select {
+  border-color: rgba(15, 23, 42, 0.14) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #0f172a !important;
+}
+
+:root[data-theme="light"] input[type="radio"] {
+  accent-color: #7c3aed;
+}
+
+:root[data-theme="light"] option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+:root[data-theme="light"] ::placeholder {
+  color: #94a3b8 !important;
+}
+
+:root[data-theme="light"] .primary-button {
+  color: #ffffff !important;
+}
+
+:root[data-theme="light"] .secondary-button {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  color: #172033 !important;
+}
+
+:root[data-theme="light"] .ghost-button {
+  border-color: rgba(190, 18, 60, 0.28) !important;
+  background-color: rgba(255, 255, 255, 0.58) !important;
+  color: #be123c !important;
+}
+
+:root[data-theme="light"] .theme-toggle {
+  border-color: rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.68);
+  color: #334155;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
